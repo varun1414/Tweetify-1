@@ -1,27 +1,33 @@
 import React from 'react'
-import {Form,Button} from 'react-bootstrap'
+import {Form,Button, Jumbotron} from 'react-bootstrap'
 import '../../App.css';
 import '../Login.css';
 function AddProduct() {
     return (
         <div>
-            <div className="form__box">
-    <div className="form__container">
+            <div className="form__box" style={{'background-color':'#212529'}}>
+    
+<Jumbotron style={{'background':'rgb(25,32,37)','color':'#fff',width:'570px',height:'450px',margin:'20px'}}>
 <Form>
-  <Form.Group controlId="formBasicEmail" bsPrefix="form__element">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text bsPrefix="form__message">
-      We'll never share your email with anyone else.
-    </Form.Text>
+  <Form.Group controlId="formProductName" bsPrefix="form__element">
+    <Form.Label>Product Name:</Form.Label>
+    <Form.Control type="email" placeholder="Enter product name" />
   </Form.Group>
 
-  <Form.Group controlId="formBasicPassword" bsPrefix="form__element">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox" bsPrefix="form__element">
-    <Form.Check type="checkbox" label="Check me out"  />
+  <Form.Group controlId="formKeyword" className="forms">
+    <Form.Label>Keywords:</Form.Label>
+   
+
+  
+  
+   <div className="forms-check">
+    <Form.Check  type="checkbox" label="All"  defaultChecked/>
+    <Form.Check type="checkbox" label="Battery" />
+    <Form.Check type="checkbox" label="Screen" />
+    <Form.Check type="checkbox" label="Memory" />
+    <Form.Check type="checkbox" label="Heat" />
+    <Form.Check type="checkbox" label="Cost" />
+    </div>
   </Form.Group>
   <div className="form__submit">
   <Button variant="dark" type="submit">
@@ -29,7 +35,8 @@ function AddProduct() {
   </Button>
   </div>
 </Form>
-</div>
+</Jumbotron>
+
 </div>
         <div></div>
         </div>

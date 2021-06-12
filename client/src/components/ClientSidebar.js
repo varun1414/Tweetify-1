@@ -14,6 +14,15 @@ export default class ClientSideBar extends Component{
     'negative':10,
     'neutral':10,
     'tweets':'',
+    'hashtag':{},
+    'line_daily':{},
+    'keyword':{},
+    'company1_sentiment':{},
+    'company2_sentiment':{},
+    'company1_line':{},
+    'company2_line':{},
+    'company1_key':{},
+    'company2_key':{},
     
   },
   
@@ -27,7 +36,7 @@ async onTrigger(event) {
     event.preventDefault();
     await axios.get('http://localhost:8000/predict/',{params:{text:this.state.data}}).then((response) => {
     this.setState({counts:response.data})
-    // console.log("counts",this.state.counts)    
+    console.log("counts",this.state.counts)    
     this.props.parentCallback(this.state.counts);
 
       
@@ -49,10 +58,10 @@ componentDidMount(){
   this.setState({loading:true})
   axios.get('http://localhost:8000/predict/',{params:{text:this.state.data}}).then((response) => {
   this.setState({counts:response.data})
-   
+  // console.log(this.state.counts.hashtag);
   this.props.parentCallback(this.state.counts);
   this.setState({loading:false})
-    
+  
       
   }).catch(function (error) {
       console.log(error);

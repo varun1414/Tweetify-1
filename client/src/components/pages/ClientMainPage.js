@@ -1,14 +1,17 @@
 // import './App.css';
 import ClientSideBar from '../ClientSidebar'
 import Dough from '../doughnut'
-import Bars from '../bar'
+import Bars from '../stackedbar'
 import TweetsCard from '../tweets_card'
-import PosCloud from '../pos_cloud'
+import PosCloud from '../pos_cloud' 
+import ReactSpeedometer from '../gaugechart'
+import Line from '../line'
 // import NeuCloud from '../neu_cloud'
 // import NegCloud from '../neg_cloud'
 import '../ClientSidebar.css'
 import { Container,Row,Col,Button,Card } from 'react-bootstrap';
 import React, { Component} from 'react';
+import KeyDough from '../keyworddoughnut'
 
 export default class ClientMainPage extends Component{
   
@@ -23,6 +26,9 @@ export default class ClientMainPage extends Component{
             'neutral':100,
             'tweets':['\nPlease wait..'],
             'freq_array':[{"text":"Welcome ","value":10}],
+            'hashtag':{},
+            'line_daily':{},
+            'keyword':{},
             
           }
       }
@@ -32,15 +38,14 @@ export default class ClientMainPage extends Component{
 
 handleCallback = (childData) =>{
   this.setState({isLoading: true})
-    this.setState({_count: childData})
+  this.setState({_count: childData})
    
-    
-    // console.log(this.state._count,"yo")
+   
 }
 
 
 render (){
-
+  
     return(
 <Container fluid className="bgdark">
   
@@ -81,7 +86,7 @@ render (){
                                     >
                                       
                                       <Card.Body>
-                                        <Card.Title>{this.state._count.neutral} </Card.Title>
+                                        <Card.Title> </Card.Title>
                                         <Card.Text>
                                           Some quick example text to build on the card title and make up the bulk
                                           of the card's content.
@@ -111,24 +116,34 @@ render (){
                           </Row>
                             
                           <Row>
-        <Col xs={12} sm={12} lg={4} style={{height:'250px'}}>Hashtag analysis
+        <Col xs={12} sm={12} lg={6} style={{height:'400px'}}>Hashtag analysis
+        <Bars hashtag={this.state._count.hashtag}></Bars>
+                           
         </Col>
-        <Col xs={12} sm={12} lg={4} style={{height:'250px'}}>Worcloud
+        <Col xs={12} sm={12} lg={6} style={{height:'400px'}}>Worcloud
         <PosCloud freq={this.state._count.freq_array}></PosCloud>
         </Col>
-        <Col xs={12} sm={12} lg={4} style={{height:'250px'}}>Line chart
-        </Col>
-        </Row>                  
-                              
-        <Row>
-        <Col xs={4} sm={3} lg={4} style={{height:'250px'}}>
-          <p>Keyword based doughnut charts/bar charts</p>
-        </Col>
-        <Col xs={4} sm={3} lg={4} style={{height:'250px'}} >
-        </Col>
-        <Col xs={4} sm={3} lg={4} style={{height:'250px'}}>
-        </Col>
         </Row>
+        
+        <Row>
+        <Col xs={4} sm={3} lg={12} style={{height:'250px',margin:'10px'}}>
+          <p>Keyword based doughnut charts/bar charts</p>
+          <Line line_daily={this.state._count.line_daily}></Line>
+        </Col>
+        
+        </Row>
+        
+        <Row>
+          
+          {  Object.entries(this.state._count.keyword).map(([key,value],i) =>
+            <Col  xs={4} sm={3} lg={5} style={{ height: '250px',width:'700px',margin:'10px'}}>{key}
+            <KeyDough key= {key} value={value}></KeyDough>
+          </Col> 
+          )}
+            
+        </Row>           
+                              
+        
           
         
 

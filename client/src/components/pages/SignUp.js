@@ -4,11 +4,23 @@ import '../../App.css';
 import '../Login.css';
 function SignUp() {
     return (
-        <div className="form__container">
-
+        
+<div className="form__box">
+<div className="form__container" style={{'background-color': '#212529'}}>
 <Form>
+
+<Form.Group controlId="formName">
+    <Form.Label style={{'color':'white'}}>Your Name</Form.Label>
+    <Form.Control placeholder="1234 Main St" />
+  </Form.Group>
+
+  <Form.Group controlId="formCompanyName">
+    <Form.Label style={{'color':'white'}}>Company/Institution</Form.Label>
+    <Form.Control placeholder="Apartment, studio, or floor" />
+  </Form.Group>
+
   <Form.Group controlId="formBasicEmail" bsPrefix="form__element">
-    <Form.Label>Email address</Form.Label>
+    <Form.Label style={{'color':'white','text-align':'left'}}>Email address</Form.Label>
     <Form.Control type="email" placeholder="Enter email" />
     <Form.Text bsPrefix="form__message">
       We'll never share your email with anyone else.
@@ -16,7 +28,7 @@ function SignUp() {
   </Form.Group>
 
   <Form.Group controlId="formBasicPassword" bsPrefix="form__element">
-    <Form.Label>Password</Form.Label>
+    <Form.Label style={{'color':'white'}}>Password</Form.Label>
     <Form.Control type="password" placeholder="Password" />
   </Form.Group>
   
@@ -24,12 +36,12 @@ function SignUp() {
     <Form.Check type="checkbox" label="Check me out"  />
   </Form.Group> */}
   <div className="form__submit">
-  <Button variant="dark" type="submit">
+  <Button variant="primary" type="submit">
     Submit
   </Button>
   </div>
 </Form>
-        </div>
+        </div></div>
     )
 }
 

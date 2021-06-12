@@ -5,7 +5,7 @@ import '../Login.css';
 import Footer from '../Footer'
 function LogIn() {
     return (
-        <div>
+        <div style={{'background-color': '#212529'}}>
      
 <div className="form__box">
     <div className="form__container">

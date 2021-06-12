@@ -1,8 +1,11 @@
+
+
 .form__box{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 .form__container
 {   box-sizing: border-box;

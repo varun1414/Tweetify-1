@@ -21,3 +21,13 @@ def preprocess(messages):
       review = ' '.join(review)
       corpus.append(review)
   return corpus
+
+def extract_hashtag(messages):
+  hashtag =[]
+  hash_list=[]
+  nltk.download('stopwords')
+  for i in range(0, len(messages)):
+      
+      hash_list = re.findall(r"#(\w+)", messages[i])
+      hashtag.append(hash_list)
+  return hashtag

@@ -10,7 +10,7 @@ from . ML_product import pred as pred
 from . ML_product import count as count
 from . ML_product import frequent as frequent
 from .ML_product import get_frequent_hashtags as hashtag
-from .ML_product import get_line_chart_daily,get_gauge_chart,get_company1_sentiment,get_company2_sentiment,get_company1_line_chart,get_company2_line_chart,get_company1_keyword,get_company2_keyword
+from .ML_product import get_line_chart_daily
 # Create your views here.
 # Class based view to predict based on IRIS model
 class Tweet_List(APIView):
@@ -21,28 +21,10 @@ class Tweet_List(APIView):
         tweet_array=tweet_array[0:10]
         freq_array=frequent(tweet_array[0:100])
         pos,neg,neu=count(label)
-        line_daily = (get_line_chart_daily())
-        keyword = get_gauge_chart()
-        # print("hellllllllllllllllllllllllllllllllllllo")
-        company1_sentiment = get_company1_sentiment()
-        company2_sentiment = get_company2_sentiment()
-        line1 = get_company1_line_chart()
-        line2 = get_company2_line_chart()
-        c1 = get_company1_keyword()
-        c2 = get_company2_keyword()
-        counts={
-            'positive':pos,'negative':neg,'neutral':neu,'tweets':tweet_array,
-            'freq_array':freq_array,'hashtag':merged,
-            'line_daily':line_daily,'keyword':keyword,
-            'company1_sentiment':company1_sentiment,
-            'company2_sentiment':company2_sentiment,
-            'company1_line':line1,
-            'company2_line':line2,
-            'company1_key':c1,
-            'company2_key':c2,
-            
-            
-            }
+        print(get_line_chart_daily())
+        # print("fuuuulllllllllllllllllllllllllllllo")
+        
+        counts={'positive':pos,'negative':neg,'neutral':neu,'tweets':tweet_array,'freq_array':freq_array,'hashtag':merged}
         # serializer =TweetSerializer(data=request.data)
         # print(counts)
         # if serializer.is_valid():
