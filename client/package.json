@@ -13,7 +13,10 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "chart.js": "^3.2.0",
+<<<<<<< HEAD
     "gauge-chart": "^0.5.3",
+=======
+>>>>>>> 0c298eaf3ab8e8df4e689ce6ed300b395b93afd0
     "mdbreact": "^5.0.2",
     "nivo": "^0.31.0",
     "react": "^17.0.2",
