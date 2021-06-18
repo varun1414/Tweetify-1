@@ -104,7 +104,7 @@ def get_sentiment_from_keyword():
 def get_line_chart_daily():
     import pandas as pd
     import dateutil
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\demo1.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/demo1.csv')
     print(df.head())
     
     new_df= (pd.get_dummies(df,columns=["label"]))
@@ -120,7 +120,7 @@ def get_line_chart_daily():
 
 def get_gauge_chart():
     keywords = ['battery','charge','memory','space','screen','price','cost']
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\demo.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/demo.csv')
     print(df.head())
     df['tweet']=preprocess(df['tweet'])
     print(df['tweet'])
@@ -142,7 +142,7 @@ def get_gauge_chart():
 
 
 def get_company1_sentiment():
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\company1.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/company1.csv')
     print(df.head())
     pos,neg,neu= count(df['label'])
     myDict = {}
@@ -151,7 +151,7 @@ def get_company1_sentiment():
 
     
 def get_company2_sentiment():
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\company2.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/company2.csv')
     print(df.head())
     pos,neg,neu=count(df['label'])
     myDict = {}
@@ -159,7 +159,7 @@ def get_company2_sentiment():
     return myDict
 
 def get_company1_line_chart():
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\company1.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/company1.csv')
     print(df.head())
     new_df= (pd.get_dummies(df,columns=["label"]))
 
@@ -169,7 +169,7 @@ def get_company1_line_chart():
     return line_c1
 
 def get_company2_line_chart():
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\company2.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/company2.csv')
     print(df.head())
     new_df= (pd.get_dummies(df,columns=["label"]))
     new_df= new_df.groupby(['date'],as_index=False).sum()
@@ -179,7 +179,7 @@ def get_company2_line_chart():
 
 def get_company1_keyword():
     keywords = ['battery','charge','memory']
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\company1.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/company1.csv')
     print(df.head())
     df['tweet']=preprocess(df['tweet'])
     print(df['tweet'])
@@ -201,7 +201,7 @@ def get_company1_keyword():
 
 def get_company2_keyword():
     keywords = ['battery','charge','memory']
-    df=pd.read_csv('C:\\Users\\Vedita\\Desktop\\Projects\\Tweet\\backend\\Tweetify\\backend\\django_app\\prediction\\company2.csv')
+    df=pd.read_csv('F:/Tweetify-1-master/backend/django_app/prediction/company2.csv')
     print(df.head())
     df['tweet']=preprocess(df['tweet'])
     print(df['tweet'])

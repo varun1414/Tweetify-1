@@ -7,7 +7,7 @@ def preprocess(messages):
   corpus = []
   # hashtag =[]
   # hash_list=[]
-  nltk.download('stopwords')
+  # nltk.download('stopwords')
   for i in range(0, len(messages)):
       
       # hash_list = re.findall(r"#(\w+)", messages[i])
@@ -30,7 +30,7 @@ def preprocess(messages):
 def extract_hashtag(messages):
   hashtag =[]
   hash_list=[]
-  nltk.download('stopwords')
+  # nltk.download('stopwords')
   for i in range(0, len(messages)):
       
       hash_list = re.findall(r"#(\w+)", messages[i])
