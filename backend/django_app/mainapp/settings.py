@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,20 +81,17 @@ WSGI_APPLICATION = 'mainapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'djongo',
-#         'NAME': 'test_db',
-#         'HOST':'mongodb+srv://be:be<be@cluster0.6mkbf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-#         # 'HOST': '127.0.0.1',
-#         'username':'be',
-#         'password':'be',
-        
-#         "authMechanism": "SCRAM-SHA-1",
+DATABASES = {
+    'default': {
+    
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'F:/Tweetify-1-master/db.sqlite3',
+        'HOST':'127.0.0.1',  
+        'PORT':'8000'  
 
     
-#     }
-# }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -142,7 +140,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = False
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass

@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from django.http.response import JsonResponse
 from rest_framework.views import APIView
 from prediction.apps import PredictionConfig
-from . models import Tweets
+# from . models import Tweets
 # from . serializers import TweetSerializer,Test
 from prediction.admin import PredictionConfig
 import numpy as np

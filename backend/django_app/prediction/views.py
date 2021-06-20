@@ -4,7 +4,8 @@ from rest_framework.response import Response
 from django.http.response import JsonResponse
 from rest_framework.views import APIView
 from prediction.apps import PredictionConfig
-from . models import Tweets
+
+from . models import User,Product
 # from . serializers import TweetSerializer,Test
 from . ML_product import pred as pred
 from . ML_product import count as count
@@ -13,6 +14,7 @@ from .ML_product import get_frequent_hashtags as hashtag
 from .ML_product import get_line_chart_daily,get_gauge_chart,get_company1_sentiment,get_company2_sentiment,get_company1_line_chart,get_company2_line_chart,get_company1_keyword,get_company2_keyword
 # Create your views here.
 # Class based view to predict based on IRIS model
+
 class Tweet_List(APIView):
     def get(self, request, format=None):
         print("Requested data",request.GET['text'])
@@ -55,5 +57,44 @@ class Tweet_List(APIView):
     #     tweet = TweetSerializer(tweet,many=True) 
     #     return JsonResponse(tweet.data,safe=False) 
 
+products=[]
+class Login(APIView):
+    
+    def post(self, request):
+        print("not")
+        getemail=request.data['params']['email']
+        getpassword=request.data['params']['password']
+        verify = User.objects.filter(email=getemail)[0]
+        print("verify",verify)
+        if verify.password == getpassword:
+            
+            # print("here1 ",products)
+            print("verified",verify.uid)
+            product = Product.objects.filter(uid=verify.uid)
+            products=[]
+            for i in product:
+                products.append(i.name)
+            
+        
+            
 
 
+
+
+
+    # def get(self,request,format=None):
+    #     tweet = Tweets.objects.all()
+    #     tweet = TweetSerializer(tweet,many=True) 
+        
+        return JsonResponse(verify.uid,safe=False) 
+    def get(self, request, format=None):
+            print("Requested data",request.GET['id'])
+            verify_uid=int(request.GET['id'])
+            product = Product.objects.filter(uid=verify_uid)
+            products=[]
+            for i in product:
+                products.append(i.name)
+
+            return JsonResponse(products,safe=False)
+
+  

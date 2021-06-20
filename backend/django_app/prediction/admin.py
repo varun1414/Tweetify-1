@@ -1,12 +1,13 @@
 from django.contrib import admin
-from . models import Tweets
+from . models import User,Product
 from django.apps import AppConfig
 import pandas as pd
 from tensorflow.keras.models import model_from_json
 import os
 import pickle
 
-admin.site.register(Tweets)
+admin.site.register(User)
+admin.site.register(Product)
 # Register your models here.
 
 
