@@ -31,9 +31,7 @@ export default class Login extends Component{
     onPassword(e){
       this.setState({password:e.target.value})
     }
-   success(){
-    
-  }
+
    fail(){
   
   }
@@ -45,7 +43,15 @@ export default class Login extends Component{
   (res)=>window.location.href ="http://localhost:3000/dashboard/?c="+this.state.id)
   }
 render(){
-  
+  const success=(res)=>{
+   var  obj=res.profileObj
+    // event.preventDefault();
+    this.setState({email:obj.email})
+    this.setState({password:"google auth"})
+    axios.post('http://localhost:8000/login/',{params:{email:this.state.email,password:this.state.password}})
+    .then((res)=>this.setState({id:res.data})).catch((err)=>console.log("error ",err)).then(
+    (res)=>window.location.href ="http://localhost:3000/dashboard/?c="+this.state.id)
+  }
 return (
       <div style={{'background-color': '#212529'}}>
    
@@ -77,7 +83,7 @@ return (
 <GoogleLogin
         clientId={clientID}
         buttonText="login"
-        onSuccess={this.success}
+        onSuccess={success}
         onFailure={this.fail}
         cookiePolicy={'single_host_origin'}
         

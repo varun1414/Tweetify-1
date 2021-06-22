@@ -109,3 +109,16 @@ class Added(APIView):
         p=Product(uid=user,name=product)
         p.save()
         return JsonResponse("success",safe=False)
+
+
+class Signup(APIView):
+    
+    def post(self, request, format=None):
+       
+        getemail=request.data['params']['email']
+        getpassword=request.data['params']['password']
+        p=User(email=getemail,password=getpassword)
+        p.save()
+        user = User.objects.latest('uid')
+        # print(user.uid)
+        return JsonResponse(user.uid,safe=False)

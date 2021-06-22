@@ -26,5 +26,6 @@ urlpatterns = [
     path('login/', views.Login.as_view()),
     path('login/$', views.Login.as_view()),
     path('added/', views.Added.as_view()),
+    path('signup/', views.Signup.as_view()),
     
 ]
