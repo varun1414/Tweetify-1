@@ -25,5 +25,6 @@ urlpatterns = [
     path('demo/', getprediction.Tweet_Label.as_view(), name = 'api_predict'),
     path('login/', views.Login.as_view()),
     path('login/$', views.Login.as_view()),
+    path('added/', views.Added.as_view()),
     
 ]

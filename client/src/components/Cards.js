@@ -5,6 +5,9 @@ import { Card,Button } from 'react-bootstrap';
 import basic from '../images/basic.png';
 import client from '../images/img12.png';
 function Cards() {
+  function gotoservice(){
+    window.location.href="http://localhost:3000/service1"
+  }
     return (
 <div className='cards'>
             
@@ -15,7 +18,7 @@ function Cards() {
     <Card.Text>
       This is the basic analysis of text with keywords,places and other filters.
     </Card.Text>
-    <Button variant="primary">Explore</Button>
+    <Button variant="primary" onClick={gotoservice}>Explore</Button>
   </Card.Body>
 </Card>
 

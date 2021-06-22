@@ -60,7 +60,7 @@ class Tweet_List(APIView):
 products=[]
 class Login(APIView):
     
-    def post(self, request):
+    def post(self, request, format=None):
         print("not")
         getemail=request.data['params']['email']
         getpassword=request.data['params']['password']
@@ -98,3 +98,14 @@ class Login(APIView):
             return JsonResponse(products,safe=False)
 
   
+
+
+class Added(APIView):
+    def post(self, request, format=None):
+        c=request.data['params']['c']
+        product=request.data['params']['proName']
+        keywords=request.data['params']['keywords']
+        user = User.objects.get(uid=int(c)) 
+        p=Product(uid=user,name=product)
+        p.save()
+        return JsonResponse("success",safe=False)
